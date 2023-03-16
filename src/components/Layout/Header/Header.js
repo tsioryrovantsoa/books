@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Navbar from '../Navbar/NavBar';
 
 function Header() {
   return (
@@ -24,19 +25,7 @@ function Header() {
               <i className="fa fa-book" aria-hidden="true" /> Books
             </a>
           </div>
-          <div
-            className="collapse navbar-collapse"
-            id="bs-example-navbar-collapse-1"
-          >
-            <ul className="nav navbar-nav mu-menu navbar-right">
-              <li>
-                <a href="#">ACCUEIL</a>
-              </li>
-              <li>
-                <a href="#mu-book-overview">RECHERCHE</a>
-              </li>
-            </ul>
-          </div>
+            <Navbar />
         </div>
       </nav>
     </div>
