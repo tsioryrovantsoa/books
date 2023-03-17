@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import { connect } from 'react-redux';
-import { addBook } from '../redux/actions/actionAddBooks';
+import { addBook, deleteBook } from '../redux/actions/actionAddBooks';
 import FlipMove from 'react-flip-move';
 
-const AddBooks = ({librarydata, addBook}) => {
+const AddBooks = ({librarydata, addBook, deleteBook}) => {
 
 console.log(librarydata);
 
@@ -38,7 +38,7 @@ const displaybooks = librarydata.length > 0 ?
 														</span>
 														<h4>{data.title}</h4>
 														<p>{data.author}</p>
-														<button className="mu-send-msg-btn"><span>SUPPRIMER</span></button>
+														<button className="mu-send-msg-btn" onClick={ () => deleteBook(data.id)}><span>SUPPRIMER</span></button>
 													</div>
 												</div>
 				)
@@ -98,7 +98,8 @@ const addStateToProps = (state) => {
 
 const addDispatchToProps = (dispatch) => {
 	return {
-		addBook : param => dispatch(addBook(param))
+		addBook : param => dispatch(addBook(param)),
+		deleteBook : (id) => dispatch(deleteBook(id))
 	}
 }
 
