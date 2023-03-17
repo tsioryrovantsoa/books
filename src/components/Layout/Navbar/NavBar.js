@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
@@ -8,10 +9,10 @@ const NavBar = () => {
           >
             <ul className="nav navbar-nav mu-menu navbar-right">
               <li>
-                <a href="#">ACCUEIL</a>
+                <Link to="/">ACCUEIL</Link>
               </li>
               <li>
-                <a href="#mu-book-overview">RECHERCHE</a>
+              <Link to="/search">RECHERCHE</Link>
               </li>
             </ul>
           </div>
