@@ -1,4 +1,4 @@
-import { ADD_BOOKS, DELETE_BOOKS } from "../constants";
+import { ADD_BOOKS, DELETE_ALL_BOOKS, DELETE_BOOKS } from "../constants";
 
 export const addBook = (data) => 
 {
@@ -16,3 +16,11 @@ export const deleteBook = (id) =>
     payload:id /* objet */
     }
 }
+
+export const deleteAllBook = () => 
+{
+    return {
+    type:DELETE_ALL_BOOKS
+    }
+}
+

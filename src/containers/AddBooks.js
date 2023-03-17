@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import { connect } from 'react-redux';
-import { addBook, deleteBook } from '../redux/actions/actionAddBooks';
+import { addBook, deleteAllBook, deleteBook } from '../redux/actions/actionAddBooks';
 import FlipMove from 'react-flip-move';
 
-const AddBooks = ({librarydata, addBook, deleteBook}) => {
+const AddBooks = ({librarydata, addBook, deleteBook,deleteAll}) => {
 
 console.log(librarydata);
 
@@ -51,7 +51,7 @@ const deleteallbooks = librarydata.length > 0 && (
 <div className="mu-contact-content">
                                 <div className="mu-contact-form">
 
-                            <button className="mu-send-msg-btn">EFFACER TOUS LES LIVRES</button>
+                            <button className="mu-send-msg-btn" onClick={() => deleteAll()}>EFFACER TOUS LES LIVRES</button>
                                 </div>
                             </div>
 )
@@ -99,7 +99,8 @@ const addStateToProps = (state) => {
 const addDispatchToProps = (dispatch) => {
 	return {
 		addBook : param => dispatch(addBook(param)),
-		deleteBook : (id) => dispatch(deleteBook(id))
+		deleteBook : (id) => dispatch(deleteBook(id)),
+		deleteAll : () => dispatch(deleteAllBook())
 	}
 }
 
