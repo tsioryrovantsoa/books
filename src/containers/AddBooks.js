@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { connect } from 'react-redux';
 import { addBook } from '../redux/actions/actionAddBooks';
+import FlipMove from 'react-flip-move';
 
 const AddBooks = ({librarydata, addBook}) => {
 
@@ -25,20 +26,26 @@ const handleSubmit = e => {
 
 }
 
-const displaybooks = librarydata.length > 0 ? librarydata.map(data => {
-	return (
-		<div className="col-md-3 col-sm-6" key={data.id}>
-										<div className="mu-book-overview-single">
-											<span className="mu-book-overview-icon-box">
-												<i className="fa fa-area-chart" aria-hidden="true"></i>
-											</span>
-											<h4>{data.title}</h4>
-											<p>{data.author}</p>
-                                            <button className="mu-send-msg-btn"><span>SUPPRIMER</span></button>
-                                        </div>
-									</div>
-	)
-}) : 'Aucune data a afficher';
+const displaybooks = librarydata.length > 0 ? 
+	<FlipMove>
+		{
+			librarydata.map(data => {
+				return (
+					<div className="col-md-3 col-sm-6" key={data.id}>
+													<div className="mu-book-overview-single">
+														<span className="mu-book-overview-icon-box">
+															<i className="fa fa-area-chart" aria-hidden="true"></i>
+														</span>
+														<h4>{data.title}</h4>
+														<p>{data.author}</p>
+														<button className="mu-send-msg-btn"><span>SUPPRIMER</span></button>
+													</div>
+												</div>
+				)
+			})
+		}
+	</FlipMove>
+	 : 'Aucune data a afficher';
 
 const deleteallbooks = librarydata.length > 0 && (
 <div className="mu-contact-content">
