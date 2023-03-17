@@ -24,6 +24,31 @@ const handleSubmit = e => {
 	setnewData(initialstate);
 
 }
+
+const displaybooks = librarydata.length > 0 ? librarydata.map(data => {
+	return (
+		<div className="col-md-3 col-sm-6" key={data.id}>
+										<div className="mu-book-overview-single">
+											<span className="mu-book-overview-icon-box">
+												<i className="fa fa-area-chart" aria-hidden="true"></i>
+											</span>
+											<h4>{data.title}</h4>
+											<p>{data.author}</p>
+                                            <button className="mu-send-msg-btn"><span>SUPPRIMER</span></button>
+                                        </div>
+									</div>
+	)
+}) : 'Aucune data a afficher';
+
+const deleteallbooks = librarydata.length > 0 && (
+<div className="mu-contact-content">
+                                <div className="mu-contact-form">
+
+                            <button className="mu-send-msg-btn">EFFACER TOUS LES LIVRES</button>
+                                </div>
+                            </div>
+)
+
   return (
     <>
                 <div className="mu-heading-area">
@@ -48,52 +73,12 @@ const handleSubmit = e => {
                             
 							<div className="mu-book-overview-content">
 								<div className="row">
-									<div className="col-md-3 col-sm-6">
-										<div className="mu-book-overview-single">
-											<span className="mu-book-overview-icon-box">
-												<i className="fa fa-area-chart" aria-hidden="true"></i>
-											</span>
-											<h4>Livre enregistrer</h4>
-											<p>Lorem ipsum dolor sit amet, consect adipis elit minim veniam ettis inkeras.</p>
-                                            <button className="mu-send-msg-btn"><span>SUPPRIMER</span></button>
-                                        </div>
-									</div>
-									<div className="col-md-3 col-sm-6">
-										<div className="mu-book-overview-single">
-											<span className="mu-book-overview-icon-box">
-												<i className="fa fa-cubes" aria-hidden="true"></i>
-											</span>
-											<h4>Chapter Two</h4>
-											<p>Lorem ipsum dolor sit amet, consect adipis elit minim veniam ettis inkeras.</p>
-										</div>
-									</div>
-									<div className="col-md-3 col-sm-6">
-										<div className="mu-book-overview-single">
-											<span className="mu-book-overview-icon-box">
-												<i className="fa fa-modx" aria-hidden="true"></i>
-											</span>
-											<h4>Chapter Three</h4>
-											<p>Lorem ipsum dolor sit amet, consect adipis elit minim veniam ettis inkeras.</p>
-										</div>
-									</div>
-
-									<div className="col-md-3 col-sm-6">
-										<div className="mu-book-overview-single">
-											<span className="mu-book-overview-icon-box">
-												<i className="fa fa-files-o" aria-hidden="true"></i>
-											</span>
-											<h4>Chapter Four</h4>
-											<p>Lorem ipsum dolor sit amet, consect adipis elit minim veniam ettis inkeras.</p>
-										</div>
-									</div>
+									{displaybooks}
 								</div>
 							</div>
-                            <div className="mu-contact-content">
-                                <div className="mu-contact-form">
 
-                            <button className="mu-send-msg-btn">EFFACER TOUS LES LIVRES</button>
-                                </div>
-                            </div>
+							{deleteallbooks}
+                            
     </>
   )
 }
