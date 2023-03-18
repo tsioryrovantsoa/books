@@ -24,11 +24,12 @@ const fetchBooksError = (error) => {
 
 export const fetchBooks = title => {
     return dispatch => {
-        dispatch(fetchBooksLoading);
+        // console.log('Fetch Books loading');
+        dispatch(fetchBooksLoading());
 
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=${title}&maxResults=20`)
         .then((response) => {
-            console.log(response.data.items);
+            // console.log(response.data.items);
             dispatch(fetchBooksSuccess(response.data.items))
         })
         .catch((error) => {

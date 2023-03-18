@@ -42,12 +42,9 @@ function Header() {
           <div className="mu-hero-left">
             <h1>Enregistrer vos livres et Rechercher des books</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam
-              saepe, recusandae quidem nulla! Eveniet explicabo perferendis aut,
-              ab quos omnis labore laboriosam quisquam hic deserunt ipsum maxime
-              aspernatur velit impedit.
+              Apprentissage ReactJS Redux avec Google Books API.
             </p>
-            <a href="#" className="mu-primary-btn">
+            <a href="/" className="mu-primary-btn">
               Rechercher ici !
             </a>
           </div>

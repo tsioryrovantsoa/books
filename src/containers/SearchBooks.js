@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { fetchBooks } from '../redux/actions/actionFetchBooks';
+import { addBook } from '../redux/actions/actionAddBooks';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SearchBooks = () => {
 
@@ -18,8 +21,21 @@ const SearchBooks = () => {
 		// console.log(state);
     }
 
+	const handleSave = (title,author) => {
+		const data = {
+			title,
+			author
+		};
+		dispatch(addBook(data));
+		toast.info("Livre enregistrer");
+	}
+
 const displayFetch = state.isLoading ? (
-			<p>Loading ...</p>
+
+	<div>
+		{console.log('IsLoading')}
+		<p>Loading ...</p>
+	</div>
 	) : state.error !== '' ? (
 		<p>{state.error}</p>
 	): (
@@ -43,7 +59,7 @@ const displayFetch = state.isLoading ? (
 														<h4>{data.volumeInfo.title}</h4>
 														<p>{data.volumeInfo.authors}</p>
 														<a href={data.volumeInfo.previewLink} className='btn btn-info' target='_blank' rel='noreferrer'> Plus d'infos</a><br></br>
-														<button className="mu-send-msg-btn"><span>Enregistrer</span></button>
+														<button className="mu-send-msg-btn" onClick={() => handleSave(data.volumeInfo.title,data.volumeInfo.authors)}><span>Enregistrer</span></button>
 													</div>
 												</div>
 			)
@@ -76,6 +92,7 @@ const displayFetch = state.isLoading ? (
                                 { displayFetch }
 							</div>
 							</div>
+							<ToastContainer />
                             
     </>
   )

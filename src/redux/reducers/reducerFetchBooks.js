@@ -10,6 +10,7 @@ const initialstate = {
 const reducerFetchBooks = (state=initialstate,action) => {
     switch (action.type) {
         case FETCH_BOOKS_LOADING:
+            console.log('Loading reducer');
             return {
                 ...state,isLoading:true
             }

@@ -7,22 +7,22 @@ function Footer() {
     <div className="container">
       <div className="mu-footer-area">
         <div className="mu-social-media">
-          <a href="#">
+          <a href="/">
             <i className="fa fa-facebook" />
           </a>
-          <a href="#">
+          <a href="/">
             <i className="fa fa-twitter" />
           </a>
-          <a href="#">
+          <a href="/">
             <i className="fa fa-google-plus" />
           </a>
-          <a href="#">
+          <a href="/">
             <i className="fa fa-linkedin" />
           </a>
         </div>
         <p className="mu-copyright">
           © Copyright{" "}
-          <a rel="nofollow" href="#">
+          <a rel="nofollow" href="/">
             Tsiory Rakotoarimalala
           </a>
           . All right reserved.
